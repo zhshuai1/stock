@@ -12,16 +12,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "POST")
 public class Post {
-
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		if (!(obj instanceof Post))
-			return false;
-		Post p = (Post) obj;
-		return this.getPostId().equals(p.getPostId()) && this.getTitle().equals(p.getTitle());
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "POST_ID")

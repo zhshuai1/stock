@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Wither;
 
@@ -19,6 +20,7 @@ import lombok.experimental.Wither;
 @Getter
 @Setter
 @Wither
+@NoArgsConstructor
 @AllArgsConstructor
 public class Stock {
 

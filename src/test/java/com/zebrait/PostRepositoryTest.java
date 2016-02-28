@@ -21,7 +21,7 @@ public class PostRepositoryTest {
 	@Autowired
 	PostRepository repository;
 
-	@Test
+	// @Test
 	public void test() {
 		Post post = new Post();
 		post.setPostDate(new Date());
@@ -34,4 +34,7 @@ public class PostRepositoryTest {
 		System.out.println(dbpost.getTitle());
 	}
 
+	@Test
+	public void test2() {
+	}
 }

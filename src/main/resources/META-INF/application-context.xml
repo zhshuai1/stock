@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd">
 
 	<!-- Database -->
 	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/stock" />
+		<property name="url" value="jdbc:mysql://www.haowon.com:3306/post" />
 		<property name="username" value="zhangsh" />
-		<property name="password" value="123456" />
+		<property name="password" value="000000" />
 	</bean>
 
 	<!-- Entity Manager -->
@@ -28,4 +31,19 @@
 
 	<!-- Jpa Repositories -->
 	<jpa:repositories base-package="com.zebrait.repositories"></jpa:repositories>
+	
+	<context:annotation-config />
+	<context:component-scan base-package="com.zebrait" />
+	
+	<bean id="stockCollection" class="com.zebrait.common.StockCollection" >
+		<property  name="stocks">
+			<util:list>
+				<value>600030</value>
+				<value>600600</value>
+				<value>600601</value>
+				<value>600602</value>
+			</util:list>
+		</property>
+	</bean>
+	
 </beans>
