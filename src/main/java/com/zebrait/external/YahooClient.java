@@ -1,8 +1,6 @@
 package com.zebrait.external;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -33,17 +31,13 @@ public class YahooClient {
 			huc.setRequestProperty("User-Agent",
 					"Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729)");
 			huc.connect();
-			InputStream input = huc.getInputStream();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(huc.getInputStream()));
-			// BufferedReader bufferedReader = new BufferedReader(new
-			// InputStreamReader((InputStream) url.getContent()));
 
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null)
 				if (line.contains("yfnc_tabledata1"))
 					content.append(line + "\n");
-			log.info("XXXXX---" + content);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			log.error("Get data from Yahoo for " + code + " failed!" + e);
 			throw new JobFailException("Job Failed", e);
 		}

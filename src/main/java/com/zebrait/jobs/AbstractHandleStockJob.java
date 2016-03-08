@@ -31,7 +31,8 @@ public abstract class AbstractHandleStockJob implements Job {
 			threadPool.submit(new Callable<Void>() {
 				@Override
 				public Void call() throws Exception {
-					process(stocks.remove());
+					String stock = stocks.remove();
+					process(stock);
 					return null;
 				}
 			});

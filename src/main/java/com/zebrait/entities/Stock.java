@@ -1,6 +1,6 @@
 package com.zebrait.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Wither;
 
 @Entity
@@ -22,7 +23,19 @@ import lombok.experimental.Wither;
 @Wither
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Stock {
+
+	public Stock(String code, Date date, float begin, float end, float high, float low, float delta) {
+		super();
+		this.code = code;
+		this.date = date;
+		this.begin = begin;
+		this.end = end;
+		this.high = high;
+		this.low = low;
+		this.delta = delta;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
